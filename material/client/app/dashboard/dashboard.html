@@ -1,0 +1,120 @@
+<div class="page page-dashboard">
+  <div class="row">
+    <div class="col-md-8">
+    <div>
+      <div class="card" style="background-color:rgb(247, 247, 247)">
+          <div class="card-content">
+              <span class="card-title">What's on your mind?. Ask here.</span>
+              <br>
+              <div class="row">
+                <div class="col-sm-8">
+                  <textarea rows="4" name="comment" placeholder="Write your question here!" class="form-control" ng-model="inputques"></textarea>
+                </div>
+                <div class="col-sm-4">
+                      <h4>Type of question</h4>
+                      <md-input-container class="full-width">
+                          <label>Category</label>
+                          <md-select ng-model="category" aria-label="select">
+                              <md-option value="academics">Academics </md-option>
+                              <md-option value="placement">Placement </md-option>
+                              <md-option value="sports">Sports </md-option>
+                              <md-option value="fest">Fest </md-option>
+                              <md-option value="club">Club </md-option>
+                              <md-option value="others">Other </md-option>
+                          </md-select>
+                      </md-input-container>
+                </div>
+              </div>
+                 <md-button class="md-raised btn-w-md md-accent" ng-click="postquestion()"><span class="fa fa-paper-plane"></span><div class="space"></div> POST</md-button><div class="divider"></div>
+                 <span style="color:red">{{inputqueserror}}</span>
+      </div>
+    </div>
+      <br>
+      <br>
+
+        <div class="card bg-white" ng-repeat="x in question">
+
+            <div class="card-content">
+                    <span class="card-title">
+                            <span style="color:grey">Question: </span>{{x.ques.question}}<p></p>
+                           <span style="color:grey;font-size:15px">Category:</span><span style="font-size:15px">{{x.ques.category}}</span>
+                           &nbsp;&nbsp;<span style="color:grey;font-size:15px">Asked By:</span><span style="font-size:15px">{{x.ques.added_by__name}}</span>
+                  </span>
+                  <br>
+                    <section class="container-fluid">
+                    <div class="panel-body no-padding">
+                        <div ng-controller="SubheaderDemo">
+                            <md-content style="height: 450px;">
+                                <section>
+                                    <md-subheader class="md-primary">Answers</md-subheader>
+                                    <md-list layout-padding="">
+                                        <md-list-item class="md-3-line" ng-repeat="y in x.answer">
+
+                                            <img ng-if="y.added_by__gender=='M' || y.added_by__gender=='m'" ng-src="assets/images/g1.jpg" class="md-avatar" alt="{{message.who}}">
+                                            <img ng-if="y.added_by__gender=='F' || y.added_by__gender=='f'" ng-src="assets/images/profile2.jpg" class="md-avatar" alt="{{message.who}}">
+                                            <div class="md-list-item-text">
+                                                <h3>{{y.added_by__name}}</h3>
+                                                <span style="color:grey">
+                                                    {{y.answer}}
+                                                </span>
+                                                <div class="space"></div>
+                                                <md-button class="md-fab md-fab-xs" ng-disabled="dis" ng-click="vote('u',y.answer_id)"><span class="fa fa-heart"></span></md-button>
+                                                <div class="space"></div>
+                                                <md-button class="md-fab md-warn md-fab-xs" ng-click="vote('d',y.answer_id)"><span class="fa fa-remove"></span></md-button>
+                                                <div class="space"></div>
+                                                <span style="color:grey">Upvotes:</span>{{y.upvote}}
+                                                <span style="color:grey">Downvotes:</span>{{y.downvote_by}}
+                                            </div>
+                                        </md-list-item>
+                                    </md-list>
+                                </section>
+                            </md-content>
+                        </div>
+                    </div>
+                  </section>
+
+                <div class="row">
+                  <div class="col-sm-8">
+                  <div class="form-group">
+                      <div class="ui-input-group">
+                          <input type="text" required class="form-control" ng-model="$parent.answer[$index]">
+                          <span class="input-bar"></span>
+                          <label>Add answer</label>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                <div class="space"></div>
+                 <div class="col-lg-2">
+                        <md-button class="md-fab" ng-click="addanswer(x.ques.ques_id,$index)" style="background-color:white;"><span class="fa fa-plus" style="color:black"></span></md-button>
+                      </div>
+                </div>
+              </div>
+                </div>
+            </div>
+
+        </div>
+      </div>
+      <div class="col-md-4">
+        <section class="container-fluid">
+        <div class="panel-body no-padding">
+            <div ng-controller="SubheaderDemo">
+                <md-content style="height: 450px;">
+                    <section>
+                        <md-subheader  class="md-primary">QUESTIONS SUMMARY</md-subheader>
+                        <md-list layout-padding="">
+                            <md-list-item class="md-3-line" ng-repeat="x in question">
+                              <span>({{$index+1}}).{{x.ques.question}}</span>
+                            </md-list-item>
+                        </md-list>
+                    </section>
+                </md-content>
+            </div>
+        </div>
+        </section>
+    </div>
+  <div>
+</div>
+
+
+</div>

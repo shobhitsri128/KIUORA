@@ -1,0 +1,84 @@
+<div class="page-signup">
+
+    <div class="wrapper">
+        <div class="main-body">
+            <div class="body-inner">
+
+                <div class="card bg-white">
+                    <div class="card-content">
+                        <section class="logo text-center">
+                            <h1><a href='/a/index.html'>KIUORA</a></h1>
+                        </section>
+
+                        <div form="signup">
+                            <fieldset>
+                                <div class="form-group">
+                                    <div class="ui-input-group">
+                                        <input type="text" required class="form-control" ng-model="name">
+                                        <span class="input-bar"></span>
+                                        <label>Name</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="ui-input-group">
+                                        <input type="text" required class="form-control" ng-model="username">
+                                        <span class="input-bar"></span>
+                                        <label>Username</label>
+                                    </div>
+                                </div>
+                                <p class="text-small" style="color:red">{{usernameerror}}</p>
+                                <div class="form-group">
+                                  <div class="ui-input-group">
+                                    <strong style="display: inline-block; width: 100px;">Gender:</strong>
+                                     <md-radio-group class="ui-md-radio-group-inline" ng-model="gender">
+                                       <md-radio-button value="m">Male </md-radio-button>
+                                       <md-radio-button value="f">Female</md-radio-button>
+                                      <md-radio-button value="o">Other</md-radio-button>
+                                   </md-radio-group>
+                                </div>
+                               </div>
+                                <div class="form-group">
+                                    <div class="ui-input-group">
+                                        <input type="text" required class="form-control" ng-model="email">
+                                        <span class="input-bar"></span>
+                                        <label>Email</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="ui-input-group">
+                                        <input type="number" ng-change="checkmobilenumber()" required class="form-control" ng-model="mob">
+                                        <span class="input-bar"></span>
+                                        <label>Mobile Number</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="ui-input-group">
+                                        <input type="password" required class="form-control" ng-model="pass">
+                                        <span class="input-bar"></span>
+                                        <label>Password</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="ui-input-group">
+                                        <input type="password" ng-change="confirmpass()" required class="form-control" ng-model="cnfpass">
+                                        <span class="input-bar"></span>
+                                        <label>Confirm Password</label>
+                                    </div>
+                                </div>
+                                <div class="divider"></div>
+                                  <div class="form-group">
+                                      <p class="text-small" style="color:red">{{error}}</p>
+                                  </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="card-action no-border text-right">
+                        <a href="#!/page/signin">Login</a>
+                        <md-button ng-click="submit()" class="color-primary">Sign Up</md-button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

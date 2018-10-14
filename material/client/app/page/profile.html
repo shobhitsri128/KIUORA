@@ -1,0 +1,186 @@
+
+<div class="page page-profile">
+    <style>
+
+</style>
+
+    <header class="profile-header">
+      <div class="row">
+        <div class="col-sm-2">
+        <div ng-if="gender=='m'"class="profile-img">
+            <img alt="" src="assets/images/g1.jpg" class="img-circle">
+        </div>
+        <div ng-if="gender=='f'"class="profile-img">
+            <img alt="" src="assets/images/g1.jpg" class="img-circle">
+        </div>
+      </div>
+      <div class="col-sm-5">
+        <section class="tile bg-white">
+          <div class="header">
+            <h3>Details</h3>
+          </div>
+          <div class="tile-body container">
+            <p><i class="fa fa-user"></i>&nbsp;{{name}}</p>
+            <p><i class="fa fa-mobile"></i>&nbsp;{{mobile}}</p>
+          </div>
+        </section>
+      </div>
+        <div class="profile-social">
+            <a href="https://www.facebook.com/" class="btn-icon btn-icon-round btn-facebook"><i class="fa fa-facebook"></i></a>
+            <a href="https://twitter.com/" class="btn-icon btn-icon-round btn-twitter"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.instagram.com/" class="btn-icon btn-icon-round btn-instagram"><i class="fa fa-instagram"></i></a>
+        </div>
+      </div>
+    </header>
+    <div class="divider divider-lg"></div>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="panel mini-box">
+            <button ng-click="getmyquestions('academics')" class="btn-icon btn-icon-round btn-icon-lg-alt bg-danger">
+                <i class="fa fa-university"></i>
+            </button>
+            <div class="box-info">
+                <p class="size-h2"><span style="color:grey">Academics</span></p>
+                <p>View your Questions</p>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="panel mini-box">
+            <button ng-click="getmyquestions('placement')" class="btn-icon btn-icon-round btn-icon-lg-alt bg-primary">
+                <i class="fa fa-graduation-cap"></i>
+            </button>
+            <div class="box-info">
+                <p class="size-h2"><span style="color:grey">Placement</span></p>
+                <p>View your Questions</p>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="panel mini-box">
+            <button ng-click="getmyquestions('sports')" style="background-color:cyan" class="btn-icon btn-icon-round btn-icon-lg-alt bg-cyan">
+                <i class="fa fa-futbol-o"></i>
+            </button>
+            <div class="box-info">
+                <p class="size-h2"><span style="color:grey">Sports</span></p>
+                <p>View your Questions</p>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="panel mini-box">
+            <button ng-click="getmyquestions('fest')" class="btn-icon btn-icon-round btn-icon-lg-alt bg-warning">
+                <i class="fa fa-odnoklassniki"></i>
+            </button>
+            <div class="box-info">
+                <p class="size-h2"><span style="color:grey">Fest</span></p>
+                <p>View your Questions</p>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="panel mini-box">
+            <button ng-click="getmyquestions('club')" style="background-color:lightblue" class="btn-icon btn-icon-round btn-icon-lg-alt bg-green">
+                <i class="fa fa-users"></i>
+            </button>
+            <div class="box-info">
+                <p class="size-h2"><span style="color:grey">Club</span></p>
+                <p>View your Questions</p>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="panel mini-box">
+            <button ng-click="getmyquestions('others')" style="background-color:yellow" class="btn-icon btn-icon-round btn-icon-lg-alt">
+                <i class="fa fa-random"></i>
+            </button>
+            <div class="box-info">
+                <p class="size-h2"><span style="color:grey">Other</span></p>
+                <p>View your Questions</p>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+          <div class="panel mini-box">
+          <button ng-click="getmyblogs()" style="background-color:yellow" class="btn-icon btn-icon-round btn-icon-lg-alt">
+              <i class="fa fa-newspaper-o"></i>
+          </button>
+          <div class="box-info">
+              <p class="size-h2"><span style="color:grey">Blogs</span></p>
+              <p>View your Blogs</p>
+          </div>
+          </div>
+      </div>
+    </div>
+
+<section class="container" ng-show="showmyquestions">
+  <div class="card bg-white" ng-repeat="x in my_ques">
+
+      <div class="card-content">
+              <span class="card-title">
+                      <span style="color:grey">Question: </span>{{x.ques.question}}<p></p>
+                     <span style="color:grey;font-size:15px">Category:</span><span style="font-size:15px">{{x.ques.category}}</span>
+                     &nbsp;&nbsp;<span style="color:grey;font-size:15px">Asked By:</span><span style="font-size:15px">{{x.ques.added_by__name}}</span>
+            </span>
+            <br>
+              <section class="container-fluid">
+              <div class="panel-body no-padding">
+                  <div ng-controller="SubheaderDemo">
+                      <md-content style="height: 450px;">
+                          <section>
+                              <md-subheader class="md-primary">Answers</md-subheader>
+                              <md-list layout-padding="">
+                                  <md-list-item class="md-3-line" ng-repeat="y in x.answer">
+
+                                      <img ng-if="y.added_by__gender=='M' || y.added_by__gender=='m'" ng-src="assets/images/g1.jpg" class="md-avatar" alt="{{message.who}}">
+                                      <img ng-if="y.added_by__gender=='F' || y.added_by__gender=='f'" ng-src="assets/images/profile2.jpg" class="md-avatar" alt="{{message.who}}">
+                                      <div class="md-list-item-text">
+                                          <h3>{{y.added_by__name}}</h3>
+                                          <span style="color:grey">
+                                              {{y.answer}}
+                                          </span>
+                                          <div class="space"></div>
+                                          <md-button class="md-fab md-fab-xs" ng-disabled="dis" ng-click="disable();aagya()"><span class="fa fa-heart"></span></md-button>
+                                          <div class="space"></div>
+                                          <md-button class="md-fab md-warn md-fab-xs"><span class="fa fa-remove"></span></md-button>
+                                          <div class="space"></div>
+
+                                      </div>
+                                  </md-list-item>
+                              </md-list>
+                          </section>
+                      </md-content>
+                  </div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+</section>
+<center><div ng-if="error">
+  <h1>No questions in this category</h1>
+</div></center>
+
+<section class="container" ng-show="showmyblogs">
+    <div class="card bg-white" ng-repeat="x in my_blogs">
+
+            <div class="card-content">
+                    <span class="card-title">
+                       <span class="text-primary">{{x.title}}</span>
+                    </span>
+                      <p><span style="color:grey">Posted By:</span>{{x.added_by__name}}</p>
+                  <br>
+                    <section class="container-fluid">
+                     {{x.description}}
+                  </section>
+                </div>
+            </div>
+          </div>
+        </div>
+
+</section>
+<center><div ng-if="errorblog">
+  <h1>No have not added any blogs yet</h1>
+</div></center>

@@ -1,0 +1,71 @@
+<div class="page page-dashboard">
+  <div class="row">
+    <div class="col-md-8">
+    <div>
+      <div class="card" style="background-color:rgb(247, 247, 247)">
+          <div class="card-content">
+              <span class="card-title">WRITE YOUR BLOGS HERE</span>
+              <br>
+              <div class='row'>
+              <div class="col-sm-6">
+              <input type="text" placeholder="Blog Title" class="form-control" required ng-model="blogtitle">
+            </div>
+          </div>
+          <br>
+              <div class="row">
+                <div class="col-sm-10">
+                  <textarea rows="8" name="comment" placeholder="Blog Content!" class="form-control" ng-model="blogcontent"></textarea>
+                </div>
+                <div class="col-sm-2">
+                </div>
+              </div>
+              <br>
+                 <md-button class="md-raised btn-w-md md-accent" ng-click="postblog()"><span class="fa fa-paper-plane"></span><div class="space"></div> POST</md-button><div class="divider"></div>
+                 <span style="color:red">{{inputqueserror}}</span>
+      </div>
+    </div>
+      <br>
+      <br>
+
+        <div class="card bg-white" ng-repeat="x in blogs">
+
+            <div class="card-content">
+                    <span class="card-title">
+                       <span class="text-primary">{{x.title}}</span>
+                    </span>
+                      <p><span style="color:grey">Posted By:</span>{{x.added_by__name}}</p>
+                  <br>
+                    <section class="container-fluid">
+                     {{x.description}}
+                  </section>
+                </div>
+            </div>
+
+        </div>
+      </div>
+      <div class="col-md-4">
+        <section class="container-fluid">
+        <div class="panel-body no-padding">
+            <div ng-controller="SubheaderDemo">
+                <md-content style="height: 450px;">
+                    <section>
+                        <md-subheader class="md-primary">BLOGS SUMMARY</md-subheader>
+                        <md-list layout-padding="">
+                            <md-list-item class="md-3-line" ng-repeat="x in blogs">
+                              <p>({{$index+1}}){{x.title}}</p>
+
+
+                                </div>
+                            </md-list-item>
+                        </md-list>
+                    </section>
+                </md-content>
+            </div>
+        </div>
+        </section>
+            </div>
+      <div>
+    </div>
+
+
+</div>
