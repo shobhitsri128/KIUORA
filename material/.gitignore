@@ -13,4 +13,4 @@ documentation/*.html
 
 .DS_Store
 npm-debug.log
-/preview/preview.zip
+/preview/preview.zip 
