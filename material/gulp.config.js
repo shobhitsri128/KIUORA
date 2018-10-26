@@ -9,7 +9,7 @@ module.exports = function() {
         client: client,
         dist: dist,
         tmp: tmp,
-        index: client + "/index.html",
+        index: client + "/index.html", 
         alljs: [
             client + "/app/**/*.js",
             './*.js'
