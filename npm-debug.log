@@ -33,7 +33,7 @@
 21 verbose headers   'x-amz-meta-rev': '115-62a9a82f4fbc878dc258b576b387f8a1',
 21 verbose headers   server: 'cloudflare' }
 22 silly get cb [ 304,
-22 silly get   { date: 'Tue, 09 Oct 2018 21:48:08 GMT',
+22 silly get   { date: 'Tue, 09 Oct 2018 21:48:08 GMT', 
 22 silly get     connection: 'keep-alive',
 22 silly get     'set-cookie':
 22 silly get      [ '__cfduid=d178344872d07311f5f76583d405be6b01539121687; expires=Wed, 09-Oct-19 21:48:07 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
