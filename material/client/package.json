@@ -31,6 +31,6 @@
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
-    "bootstrap": "^3.3.0"
+    "bootstrap": "^3.4.1"
   }
 }
